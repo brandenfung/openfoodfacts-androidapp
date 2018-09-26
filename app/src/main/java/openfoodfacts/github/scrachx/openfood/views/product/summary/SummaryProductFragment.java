@@ -577,8 +577,13 @@ public class SummaryProductFragment extends BaseFragment implements CustomTabAct
 
             }
         };
+
         spannableStringBuilder.append(category.getName());
         spannableStringBuilder.setSpan(clickableSpan, 0, spannableStringBuilder.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
+        if (!category.isNotNull()) {
+            StyleSpan iss = new StyleSpan(android.graphics.Typeface.ITALIC); //Span to make text italic
+            spannableStringBuilder.setSpan(iss, 0, spannableStringBuilder.length(), SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
         return spannableStringBuilder;
     }
 
